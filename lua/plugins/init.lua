@@ -56,6 +56,38 @@ return {
       return require "configs.gitsigns"
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function()
+      local conf = require "nvchad.configs.telescope"
+
+      table.insert(conf.extensions_list, "fzf")
+
+      return conf
+    end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    lazy = false,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({
+        oldfiles = {
+          include_current_session = false,
+          cwd_only = true
+        },
+        grep_opts = "--smart-case --binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
+        files = { rg_opts = [[--color=never --files --hidden --follow -g "!.git" -g "!*.idx" -g "!.repo" -g "!.environment"]] },
+      })
+    end,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

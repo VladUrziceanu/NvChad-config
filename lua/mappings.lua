@@ -24,3 +24,5 @@ map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>")
 map("n", "<leader>gfh", "<cmd>DiffviewFileHistory %<cr>")
 
 map("n", "<leader>gb", "<cmd>Git blame<cr>")
+
+map("n", "<leader>ff", "<cmd>FzfLua files<cr>")
