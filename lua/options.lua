@@ -10,6 +10,7 @@ vim.highlight.cursorline = 'term=bold cterm=bold ctermbg=236'
 -- List trailing whitespaces and tabs
 o.list = true
 o.listchars ='tab:» ,trail:·'
+o.scrolloff = 5
 
 -- Autocmd commands
 local autocmd = vim.api.nvim_create_autocmd
