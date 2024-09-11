@@ -4,9 +4,27 @@
 
 ---@type ChadrcConfig
 local M = {}
+local separators = {
+  default = { left = "", right = "" },
+  round = { left = "", right = "" },
+  block = { left = "█", right = "█" },
+  arrow = { left = "", right = "" },
+}
+local sep_l = separators["round"]["left"]
+
 
 M.base46 = {
-	theme = "gruvbox",
+  theme = "gruvbox",
+}
+
+M.ui = {
+  statusline = {
+    modules = {
+      cursor = function()
+        return "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon# %#St_pos_text# %l-%c / %p%% "
+      end
+    },
+  },
 }
 
 return M
