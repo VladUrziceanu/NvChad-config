@@ -12,16 +12,15 @@ return {
   },
   {
     "vivien/vim-linux-coding-style",
-    lazy = false,
+    event = "User FilePost",
     config = function()
-      vim.g.linuxsty_patterns = { "/linux/", "/kernel/", "/kernel-6.6/" }
+      vim.g.linuxsty_patterns = { "/linux/", "/kernel/", "/kernel-" }
     end,
   },
   {
     "dhananjaylatkar/cscope_maps.nvim",
     cmd = "Cs",
     dependencies = {
-      "folke/which-key.nvim", -- optional [for whichkey hints]
       "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope, fzf or mini.pick]
     },
     opts = {
@@ -35,11 +34,6 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
   },
   {
     "sindrets/diffview.nvim",
@@ -88,13 +82,4 @@ return {
       })
     end,
   },
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }

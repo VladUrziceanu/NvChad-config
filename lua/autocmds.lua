@@ -35,3 +35,11 @@ autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
+-- Delete trailing whitespaces
+autocmd("BufWritePre", {
+  callback = function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[%s/\s\+$//e]])
+    pcall(vim.api.nvim_win_set_cursor, 0, cursor)
+  end,
+})
