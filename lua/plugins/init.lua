@@ -34,6 +34,9 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
   },
   {
     "sindrets/diffview.nvim",
@@ -56,6 +59,22 @@ return {
       local conf = require "nvchad.configs.telescope"
 
       table.insert(conf.extensions_list, "fzf")
+      conf.defaults.vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--follow",
+        "--glob=!.git",
+        "--glob=!*.idx",
+        "--glob=!.repo",
+        "--glob=!.environment",
+        "--glob=!cscope*",
+        }
 
       return conf
     end,
