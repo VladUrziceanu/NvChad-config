@@ -34,3 +34,5 @@ map("n", "<F12>", "<cmd>Cs db build<cr>")
 
 map("", ">", ">gv")
 map("", "<", "<gv")
+
+map("n", "<leader>fW", "<cmd>Telescope grep_string<cr>")
