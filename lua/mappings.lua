@@ -1,6 +1,9 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local unmap = vim.keymap.del
+
+unmap("n", "<C-c>")
 
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
