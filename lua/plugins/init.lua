@@ -101,4 +101,8 @@ return {
       })
     end,
   },
+  {
+    "pocco81/auto-save.nvim",
+    event = "User FilePost",
+  },
 }

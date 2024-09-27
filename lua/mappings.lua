@@ -36,3 +36,5 @@ map("", ">", ">gv")
 map("", "<", "<gv")
 
 map("n", "<leader>fW", "<cmd>Telescope grep_string<cr>")
+
+map("n", "<leader>sa", "<cmd>ASToggle<cr>", { desc = "CMD toggle auto save" })
