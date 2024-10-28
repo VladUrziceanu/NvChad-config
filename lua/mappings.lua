@@ -31,13 +31,22 @@ map("n", "<leader>gfh", "<cmd>DiffviewFileHistory %<cr>")
 
 map("n", "<leader>gb", "<cmd>Git blame<cr>")
 
-map("n", "<leader>ff", "<cmd>FzfLua files<cr>")
+--Replace telescope mappings with faster fzflua
+map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "fzflua find files" })
+map("n", "<leader>fw", "<cmd>FzfLua live_grep<cr>", { desc = "fzflua live grep" })
+map("n", "<leader>fW", "<cmd>FzfLua grep_cword<cr>", { desc = "fzflua grep word under cursor" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "fzflua find buffers" })
+map("n", "<leader>fh", "<cmd>FzfLua helptags<CR>", { desc = "fzflua help page" })
+map("n", "<leader>ma", "<cmd>FzfLua marks<CR>", { desc = "fzflua find marks" })
+map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "fzflua find oldfiles" })
+map("n", "<leader>fz", "<cmd>FzfLua blines<CR>", { desc = "fzflua find in current buffer" })
+map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "fzflua git commits" })
+map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "fzflua git status" })
 
 map("n", "<F12>", "<cmd>Cs db build<cr>")
 
 map("", ">", ">gv")
 map("", "<", "<gv")
 
-map("n", "<leader>fW", "<cmd>Telescope grep_string<cr>")
 
 map("n", "<leader>sa", "<cmd>ASToggle<cr>", { desc = "CMD toggle auto save" })

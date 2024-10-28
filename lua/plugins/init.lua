@@ -97,7 +97,10 @@ return {
           cwd_only = true
         },
         grep_opts = "--smart-case --binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
-        files = { rg_opts = [[--color=never --files --hidden --follow -g "!.git" -g "!*.idx" -g "!.repo" -g "!.environment"]] },
+        files = {
+          rg_opts = [[--color=never --files --hidden --follow -g "!.git" -g "!*.idx" -g "!.repo" -g "!.environment" -g "!out" -g "!bazel-*"]],
+          fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude out --exclude bazel-bin --exclude "bazel-*"]],
+        },
       })
     end,
   },
