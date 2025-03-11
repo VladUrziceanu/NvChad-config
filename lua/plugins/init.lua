@@ -26,7 +26,7 @@ return {
     opts = {
       prefix = "<C-\\>",
       cscope = {
-        db_build_cmd_args = { "-Rkb" },
+        db_build_cmd = { "-Rkb" },
         picker = "telescope",
       },
     },
@@ -103,5 +103,18 @@ return {
         },
       })
     end,
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    config = function()
+      return require "configs.oil"
+    end,
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
   },
 }

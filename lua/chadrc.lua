@@ -14,7 +14,7 @@ local sep_l = separators["round"]["left"]
 
 
 M.base46 = {
-  theme = "gruvbox",
+  theme = "gruvchad",
 }
 
 M.ui = {
