@@ -22,11 +22,12 @@ return {
     cmd = "Cs",
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope, fzf or mini.pick]
+      "nvim-telescope/telescope.nvim",
     },
     opts = {
       prefix = "<C-\\>",
       cscope = {
-        db_build_cmd = { "-Rkb" },
+        db_build_cmd = { script = "default", args = { "-Rkbqv" } },
         picker = "telescope",
       },
     },
