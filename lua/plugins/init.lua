@@ -19,7 +19,7 @@ return {
   },
   {
     "dhananjaylatkar/cscope_maps.nvim",
-    cmd = "Cs",
+    event = "User FilePost",
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope, fzf or mini.pick]
       "nvim-telescope/telescope.nvim",
