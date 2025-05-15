@@ -26,8 +26,8 @@ map("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv")
 map("v", "<A-k>", "<cmd>m '>-2<cr>gv=gv")
 
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>")
-map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>")
-map("n", "<leader>gfh", "<cmd>DiffviewFileHistory %<cr>")
+map("n", "<leader>gfh", "<cmd>DiffviewFileHistory<cr>")
+map("n", "<leader>gfH", "<cmd>DiffviewFileHistory %<cr>")
 
 map("n", "<leader>gb", "<cmd>Git blame<cr>")
 
@@ -67,3 +67,45 @@ map("", "<", "<gv")
 map("n", "<leader>sa", "<cmd>ASToggle<cr>", { desc = "CMD toggle auto save" })
 
 map("n", "<leader>o", "<CMD>Oil<cr>", { desc = "Open parent directory" })
+
+--gitsigns mappings
+require('gitsigns').setup{
+  on_attach = function(bufnr)
+    local gitsigns = require('gitsigns')
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({']c', bang = true})
+      else
+        gitsigns.nav_hunk('next')
+      end
+    end)
+
+    map('n', '[c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({'[c', bang = true})
+      else
+        gitsigns.nav_hunk('prev')
+      end
+    end)
+
+    -- Actions
+    map('n', '<leader>ghs', gitsigns.stage_hunk, { desc = 'stage hunk' })
+    map('n', '<leader>ghr', gitsigns.reset_hunk, { desc = 'reset hunk' })
+
+    map('n', '<leader>ghS', gitsigns.stage_buffer, { desc = 'stage buffer' })
+    map('n', '<leader>ghR', gitsigns.reset_buffer, { desc = 'reset buffer' })
+    map('n', '<leader>ghp', gitsigns.preview_hunk, { desc = 'preview hunk' })
+    map('n', '<leader>ghi', gitsigns.preview_hunk_inline, { desc = 'preview hunk inline' })
+
+    -- Text object
+    map({'o', 'x'}, 'gih', gitsigns.select_hunk, { desc = 'select hunk' })
+  end
+}
