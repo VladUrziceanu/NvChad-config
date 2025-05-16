@@ -43,6 +43,7 @@ map("n", "<leader>fz", "<cmd>FzfLua blines<cr>", { desc = "fzflua find in curren
 map("n", "<leader>cm", "<cmd>FzfLua git_commits<cr>", { desc = "fzflua git commits" })
 map("n", "<leader>cbm", "<cmd>FzfLua git_bcommits<cr>", { desc = "fzflua git commits (buffer)" })
 map("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "fzflua git status" })
+map("n", "<leader>fr", "<cmd>FzfLua resume<cr>", { desc = "fzflua resume" })
 
 --Lsp mappings
 map("n", "grs", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { desc = "workspace symbols" })
