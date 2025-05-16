@@ -1,20 +1,5 @@
 -- Toggle file detail view
 local detail = false
-require("oil").setup({
-  keymaps = {
-    ["gd"] = {
-      desc = "Toggle file detail view",
-      callback = function()
-        detail = not detail
-        if detail then
-          require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
-        else
-          require("oil").set_columns({ "icon" })
-        end
-      end,
-    },
-  },
-})
 
 -- Show CWD in the winbar
 -- Declare a global function to retrieve the current directory
@@ -28,12 +13,6 @@ function _G.get_oil_winbar()
     return vim.api.nvim_buf_get_name(0)
   end
 end
-
-require("oil").setup({
-  win_options = {
-    winbar = "%!v:lua.get_oil_winbar()",
-  },
-})
 
 -- Hide gitignored files and show git tracked hidden files
 -- helper function to parse output
@@ -86,6 +65,26 @@ refresh.callback = function(...)
 end
 
 require("oil").setup({
+  float = {
+    max_width = 0.6,
+    max_height = 0.8,
+  },
+  keymaps = {
+    ["gd"] = {
+      desc = "Toggle file detail view",
+      callback = function()
+        detail = not detail
+        if detail then
+          require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+        else
+          require("oil").set_columns({ "icon" })
+        end
+      end,
+    },
+  },
+  win_options = {
+    winbar = "%!v:lua.get_oil_winbar()",
+  },
   view_options = {
     is_hidden_file = function(name, bufnr)
       local dir = require("oil").get_current_dir(bufnr)

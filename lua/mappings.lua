@@ -67,7 +67,7 @@ map("", "<", "<gv")
 
 map("n", "<leader>sa", "<cmd>ASToggle<cr>", { desc = "CMD toggle auto save" })
 
-map("n", "<leader>o", "<CMD>Oil<cr>", { desc = "Open parent directory" })
+map("n", "<leader>o", require('oil').toggle_float, { desc = "Open oil explorer" })
 
 --gitsigns mappings
 require('gitsigns').setup{

@@ -107,8 +107,6 @@ return {
   },
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
     config = function()
       return require "configs.oil"
     end,
