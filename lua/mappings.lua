@@ -67,7 +67,9 @@ map("", "<", "<gv")
 
 map("n", "<leader>sa", "<cmd>ASToggle<cr>", { desc = "CMD toggle auto save" })
 
-map("n", "<leader>o", require('oil').toggle_float, { desc = "Open oil explorer" })
+vim.keymap.set("n", "<leader>o", function()
+  require('oil').open_float(nil, { preview = {} })
+end, { desc = "Open oil explorer" })
 
 --gitsigns mappings
 require('gitsigns').setup{

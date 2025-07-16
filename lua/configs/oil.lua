@@ -66,7 +66,7 @@ end
 
 require("oil").setup({
   float = {
-    max_width = 0.6,
+    max_width = 0.8,
     max_height = 0.8,
   },
   keymaps = {
@@ -81,6 +81,7 @@ require("oil").setup({
         end
       end,
     },
+    ["<esc><esc>"] = { "actions.close", mode = "n" },
   },
   win_options = {
     winbar = "%!v:lua.get_oil_winbar()",
