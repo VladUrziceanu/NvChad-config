@@ -112,3 +112,14 @@ require('gitsigns').setup{
     map({'o', 'x'}, 'gih', gitsigns.select_hunk, { desc = 'select hunk' })
   end
 }
+
+--Yanky
+map({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+map({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+map({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+map({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+
+map("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+map("n", "<c-n>", "<Plug>(YankyNextEntry)")
+map("n", "<c-n>", "<Plug>(YankyNextEntry)")
+map("n", "<leader>y", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })

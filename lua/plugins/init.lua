@@ -116,4 +116,16 @@ return {
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
   },
+  {
+    "gbprod/yanky.nvim",
+    lazy = false,
+    config = function()
+      require('yanky').setup({
+        highlight = {
+          on_yank = false,
+        }
+      })
+      require("telescope").load_extension("yank_history")
+    end,
+  }
 }
