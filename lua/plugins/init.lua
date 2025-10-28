@@ -127,5 +127,6 @@ return {
       })
       require("telescope").load_extension("yank_history")
     end,
-  }
+  },
+  { import = "nvchad.blink.lazyspec" },
 }
